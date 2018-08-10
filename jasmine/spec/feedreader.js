@@ -31,17 +31,36 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-
+        it('check if has url', function(){
+            for(e in allFeeds){
+                console.log(allFeeds[e]);
+                expect(allFeeds[e].name).not.toBe(undefined);
+                
+            }
+        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        it('check if has and name', function(){
+            for(e in allFeeds){
+                console.log(allFeeds[e]);
+                expect(allFeeds[e].name).not.toBe(undefined);
+                
+            }
+        });
     });
 
 
     /* TODO: Write a new test suite named "The menu" */
+    describe('The menu', function(){
+        it('check if menu is hidden initaily', function(){
+            console.log($('body').className);
+            expect($('body').className).toBe('menu-hidden');
+        });
 
+    });
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
