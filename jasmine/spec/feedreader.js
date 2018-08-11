@@ -33,7 +33,6 @@ $(function() {
          */
         it('check if has url', function(){
             for(e in allFeeds){
-                console.log(allFeeds[e]);
                 expect(allFeeds[e].name).not.toBe(undefined);
                 
             }
@@ -45,7 +44,6 @@ $(function() {
          */
         it('check if has and name', function(){
             for(e in allFeeds){
-                console.log(allFeeds[e]);
                 expect(allFeeds[e].name).not.toBe(undefined);
                 
             }
@@ -55,23 +53,32 @@ $(function() {
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function(){
-        it('check if menu is hidden initaily', function(){
-            console.log($('body').className);
-            expect($('body').className).toBe('menu-hidden');
-        });
-
-    });
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-
+        it('check if menu is hidden initaily', function(){
+            expect($('body')[0].className).toBe('menu-hidden');
+        });
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+         it('check if the visibility of menu changes on click', function(){
+            if($('body')[0].className==='menu-hidden') {
+                $('icon-list').click(function(){
+                    expect($('body')[0].className).toBe(undefined);
+                });
+                console.log($('icon-list'));
+            }else{
+                $('icon-list').click(function(){
+                    expect($('body')[0].className).toBe('menu-hidden');
+                });
+            }
+         });
+        });
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
