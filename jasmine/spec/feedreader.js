@@ -69,7 +69,6 @@ $(function() {
                 $('icon-list').click(function(){
                     expect($('body')[0].className).toBe(undefined);
                 });
-                console.log($('icon-list'));
             }else{
                 $('icon-list').click(function(){
                     expect($('body')[0].className).toBe('menu-hidden');
