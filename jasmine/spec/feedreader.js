@@ -82,15 +82,12 @@ $(function() {
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function(){
-        var async = new loadFeed();
             beforeEach(function(done){
-                async.success(function(){
-                    done();
-                });
+                loadFeed(0, done);
             });
-        it('ensure that loadFeed function completes its work', function(done){
-          expect($('.feed').innerHTML!="");  
-          done();
+        it('ensure that loadFeed function completes its work', function(){
+          expect($('.feed').innerHTML).not.toBe("");  
+          
             /* TODO: Write a test that ensures when the loadFeed
              * function is called and completes its work, there is at least
              * a single .entry element within the .feed container.
@@ -102,17 +99,13 @@ $(function() {
         /* TODO: Write a new test suite named "New Feed Selection" */
         var data = $('feed');
     describe('New Feed Selection', function(){
-        var async = new loadFeed();
             beforeEach(function(done){
-                async.success(function(){
-                    done();
-                });
+                loadFeed(0, done);
             });
-        it('ensure that content changes', function(done){
-            expect($('.feed')!=data);
-            done();
+        it('ensure that content changes', function(){
+            expect($('.feed')).not.toBe(data);
         });
-    
+            data = $('feed');
     });
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
