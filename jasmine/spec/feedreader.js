@@ -33,7 +33,7 @@ $(function() {
          */
         it('check if has url', function(){
             for(e in allFeeds){
-                expect(allFeeds[e].name).not.toBe(undefined);  
+                expect(allFeeds[e].url).not.toBe(undefined);  
             }
         });
 
@@ -65,16 +65,12 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
          it('check if the visibility of menu changes on click', function(){
-            if($('body')[0].className==='menu-hidden') {
-                $('icon-list').click(function(){
-                    expect($('body')[0].className).toBe(undefined);
-                });
-            }else{
-                $('icon-list').click(function(){
-                    expect($('body')[0].className).toBe('menu-hidden');
-                });
-            }
-        });
+            var change = $('icon-list');
+                    //$('#icon-list').click();
+                    expect($('body')[0].hasClass).toBe('menu-hidden');
+                    $('#icon-list').click();
+                    expect($('body')[0].hasClass).not.toBe('menu-hidden');
+            });
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
@@ -89,22 +85,29 @@ $(function() {
              * the use of Jasmine's beforeEach and asynchronous done() function.
              */
         it('ensure that loadFeed function completes its work', function(){
-            expect($('.feed').innerHTML).not.toBe("");    
+            expect($('.feed').child).not.toBe("");    
         });
     });
         /* TODO: Write a new test suite named "New Feed Selection" */
-    var data = $('feed');
+    var data;
+    var data1;
     describe('New Feed Selection', function(){
         beforeEach(function(done){
-            loadFeed(0, done);
+            loadFeed(0, function(){
+                 data = $('feed');
+                loadFeed(1, function(){
+                 data1 = $('feed');
+                done();
+                });
+            });
         });
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        it('ensure that content changes', function(){
-            expect($('.feed')).not.toBe(data);
+        it('ensure that content changes', function(done){
+            expect(data1).not.toBe(data);
+            done();
         });
-        data = $('feed');
     });
 }());
