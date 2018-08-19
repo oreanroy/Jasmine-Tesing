@@ -68,11 +68,9 @@ $(function() {
          it('check if the visibility of menu changes on click', function(){
             var change = $('icon-list');
                     menu.click();
-                    console.log($('body')[0].className);
-                    expect($('body')[0].hasClass).toBe(undefined);
+                    expect($('body')[0].className).not.toContain('menu-hidden');
                     menu.click();
-                    console.log($('body')[0].className);
-                    expect($('body')[0].hasClass).toBe('menu-hidden');
+                    expect($('body')[0].className).toContain('menu-hidden');
             });
     });
 
