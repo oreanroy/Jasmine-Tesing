@@ -66,6 +66,7 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+         //checks weather the class of body changes on being clicked
          var menu = $('.menu-icon-link');
          it('check if the visibility of menu changes on click', function(){
             var change = $('icon-list');
@@ -107,7 +108,7 @@ $(function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
-         */
+         *///checking content chnages in second call
         it('ensure that content changes', function(done){
             data1 = $('.feed').html();
             expect(data1).not.toBe(data);
