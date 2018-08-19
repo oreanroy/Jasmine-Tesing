@@ -45,7 +45,7 @@ $(function() {
         it('check if has and name', function(){
             for(e in allFeeds){
                 expect(allFeeds[e].name).not.toBe(undefined);
-                expect(allFeeds[e].url.length).not.toBe(0);
+                expect(allFeeds[e].name.length).not.toBe(0);
             }
         });
     });
