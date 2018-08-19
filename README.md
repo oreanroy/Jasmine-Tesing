@@ -1,6 +1,6 @@
 # Using jasmine to test a feedreader application developed in my udacity nanodegree
 
-#How to run the project?
+# How to run the project?
 <ul>
     <li><h3>Clone the repo.</h3></li>
     <li><h3>Open the index.html file using chrome or firefox.</h3></li>
@@ -9,7 +9,7 @@
     <li><h3>Check the results of running the test.</h3></li>
 </ul>
 
-#Tools used
+# Tools used
 ## jasmine for unit testing
 ## ajax for asynchronus calls
 
