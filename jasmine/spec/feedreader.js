@@ -33,7 +33,8 @@ $(function() {
          */
         it('check if has url', function(){
             for(e in allFeeds){
-                expect(allFeeds[e].url).not.toBe(undefined);  
+                expect(allFeeds[e].url).not.toBe(undefined);
+                expect(allFeeds[e].url.length).not.toBe(0);  
             }
         });
 
@@ -44,6 +45,7 @@ $(function() {
         it('check if has and name', function(){
             for(e in allFeeds){
                 expect(allFeeds[e].name).not.toBe(undefined);
+                expect(allFeeds[e].url.length).not.toBe(0);
             }
         });
     });
@@ -68,9 +70,9 @@ $(function() {
          it('check if the visibility of menu changes on click', function(){
             var change = $('icon-list');
                     menu.click();
-                    expect($('body')[0].className).not.toContain('menu-hidden');
+                    expect($('body').hasClass('menu-hiddden')).toBe(false);
                     menu.click();
-                    expect($('body')[0].className).toContain('menu-hidden');
+                    expect($('body').hasClass('menu-hidden')).toBe(true);
             });
     });
 
@@ -86,18 +88,18 @@ $(function() {
              * the use of Jasmine's beforeEach and asynchronous done() function.
              */
         it('ensure that loadFeed function completes its work', function(){
-            expect($('.feed').child).not.toBe("");    
+            expect($('.feed .entry').length).not.toBe(0);    
         });
     });
         /* TODO: Write a new test suite named "New Feed Selection" */
-    var data;
-    var data1;
+    
     describe('New Feed Selection', function(){
+        var data;
+        var data1;
         beforeEach(function(done){
             loadFeed(0, function(){
-                 data = $('feed');
+                 data = $('.feed').html();
                 loadFeed(1, function(){
-                 data1 = $('feed');
                 done();
                 });
             });
@@ -107,6 +109,7 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
         it('ensure that content changes', function(done){
+            data1 = $('.feed').html();
             expect(data1).not.toBe(data);
             done();
         });
