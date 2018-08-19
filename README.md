@@ -7,6 +7,9 @@
     <li><h3>Or run a local websever.</h3></li>
     <li><h3>Click on run all specs in jasmine index page.</h3></li>
     <li><h3>Check the results of running the test.</h3></li>
+    <li><h3>The green dot means test ran sucessfully.</h3></li>
+    <li><h3>The red cross represents error while running test.</h3></li>
+    <li><h3>The yellow represent error in writing test case.</h3></li>
 </ul>
 
 # Tools used
